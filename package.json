@@ -1,0 +1,19 @@
+{
+  "name": "vue-example",
+  "version": "1.0.0",
+  "description": "The canonical use case for jQuery has historically been submitting a form with an AJAX call, so we should take a look at that as well. Vue actually does not have a built-in thing like AJAX; it’s typical in Vue application to use something like Axios (a JavaScript library for making HTTP requests) to help with this task.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fil923/vue-example.git"
+  },
+  "author": "Filippo Nardi & Edoardo Gargano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fil923/vue-example/issues"
+  },
+  "homepage": "https://github.com/Fil923/vue-example#readme"
+}
