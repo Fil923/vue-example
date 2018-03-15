@@ -8,6 +8,7 @@ var gulp = require("gulp"),
 	header = require("gulp-header"),
 	rename = require("gulp-rename"),
 	cssnano = require("gulp-cssnano"),
+	babel = require("gulp-babel"),
 	sourcemaps = require("gulp-sourcemaps"),
 	package = require("./package.json");
 
@@ -46,6 +47,9 @@ gulp.task("js", function() {
 		.pipe(jshint(".jshintrc"))
 		.pipe(jshint.reporter("default"))
 		.pipe(header(banner, { package: package }))
+		.pipe(babel({
+            presets: ['vue']
+        }))
 		.pipe(uglify())
 		.on("error", function(err) {
 			gutil.log(gutil.colors.red("[Error]"), err.toString());
