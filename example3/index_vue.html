@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Vue Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		.red {
+			color: red;
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Toggle class - Vue</h1>
+	<div id="app">
+		<button @click="active = !active" :aria-pressed="active ? 'true' : 'false'">Toggle me</button>
+		<p :class="{ red: active }">Sometimes I need to be styled differently</p>
+	</div>
+</body>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			active: false
+		}
+	})
+</script>
+
+</html>

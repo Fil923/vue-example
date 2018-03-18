@@ -1,0 +1,70 @@
+body {
+  background-color: #f3df48;
+  font-family: "Bitter", serif;
+  text-align: center;
+  font-size: 200%;
+}
+
+h1 {
+  font-size: 120%;
+}
+
+h2 {
+  font-size: 90%;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#app {
+  text-align: center;
+}
+
+#pagelist {
+  font-size: 70%;
+}
+
+label {
+  padding-right: 0.5em;
+  font-weight: bold;
+}
+
+input,
+textarea,
+button[type="submit"] {
+  font-size: 160%;
+  border: 4px dotted black;
+}
+
+button[type="submit"] {
+  background: grey;
+}
+
+button[type="submit"].active {
+  background: green;
+  border: 4px solid black;
+}
+
+p {
+  margin: 20px auto;
+  width: 60%;
+  min-height: 60px;
+  font-size: 160%;
+  line-height: 60px;
+  border: 3px solid black;
+}
+
+.response pre {
+  text-align: left;
+  margin-left: 30%;
+}
+
+li {
+  text-align: center;
+  list-style: none;
+}

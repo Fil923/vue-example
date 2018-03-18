@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Vue Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Capturing input 2 - Vue</h1>
+	<div id="app">
+		<label for="name">Name:</label>
+		<input id="name" type="text" v-model.lazy="name" />
+		<p>{{ name }}</p>
+	</div>
+</body>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			name: ''
+		}
+	})
+</script>
+
+</html>
