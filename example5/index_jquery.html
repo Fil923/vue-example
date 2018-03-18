@@ -40,25 +40,28 @@
 </body>
 <script>
 	$(function () {
+		var $form = $("form");
 		var button = $("button");
-		var name = $("input[name=name]");
+		var $name = $("input[name=name]");
+		var $email = $("input[name=email]");
+		var $msg = $("textarea[name=msg]");
 
-		name.keyup(function () {
-			if (name.val().length > 0) {
+		$form.find("input").keyup(function () {
+			if ($name.val().length > 0 || $email.val().length > 0 || $msg.val() > 0) {
 				button.addClass('active');
 			} else {
 				button.removeClass('active');
 			}
 		});
 
-		$("form").submit(function (event) {
+		$form.submit(function (event) {
 			event.preventDefault();
 
 			//get the form data
 			var formData = {
-				name: $("input[name=name]").val(),
-				email: $("input[name=email]").val(),
-				msg: $("textarea[name=msg]").val()
+				name: $name.val(),
+				email: $email.val(),
+				msg: $msg.val()
 			};
 
 			// process the form

@@ -30,7 +30,7 @@
 				<br>
 				<textarea id="msg" v-model="msg" required></textarea>
 			</div>
-			<button :class="[name ? activeClass : '']" type="submit">Submit</button>
+			<button :class="[name || email || msg ? activeClass : '']" type="submit">Submit</button>
 			<div class="response">
 				<h3>Response from server:</h3>
 				<pre>{{ response }}</pre>
