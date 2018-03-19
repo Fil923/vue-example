@@ -14,19 +14,51 @@ h2 {
 }
 
 .logo {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 100px;
+  height: 100px;
 }
 
 #app {
   text-align: center;
 }
 
-#pagelist {
+.container {
+  max-width: 768px;
+  margin: 0 auto;
   font-size: 70%;
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: 100px;
+}
+
+.article {
+  width: 100%;
+  height: auto;
+}
+
+.article__list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-content: center;
+  
+}
+
+.article__list__element {
+  width: 50%;
+}
+
+.article__list__element a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.article__list__element a:hover {
+  text-decoration: underline;
 }
 
 label {
