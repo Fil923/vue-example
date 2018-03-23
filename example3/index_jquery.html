@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		.red {
+			color: red;
+		}
+	</style>
+	<script src="../vendor/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Toggle class - jQuery</h1>
+	<div id="app">
+		<button aria-pressed="false">Toggle me</button>
+		<p class="toggle">Sometimes I need to be styled differently</p>
+	</div>
+</body>
+<script>
+	$(function () {
+		$('button').click(function (e) {
+			$('.toggle').toggleClass('red');
+			$(this).attr('aria-pressed', ($(this).attr('aria-pressed') == "false" ? true : false));
+		});
+	});
+</script>
+
+</html>

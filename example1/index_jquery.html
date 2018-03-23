@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<script src="../vendor/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Capturing input 1 - jQuery</h1>
+	<div id="app">
+		<label for="thing">Name:</label>
+		<input id="thing" type="text" />
+		<p class="formname"></p>
+	</div>
+</body>
+<script>
+	$(function () {
+		$('#app').keyup(function (e) {
+			var formname = $(this).find('.formname');
+			var n_input = $(this).find('#thing').val();
+			formname.empty();
+			formname.append(n_input);
+		});
+	});
+</script>
+
+</html>

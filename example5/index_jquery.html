@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<script src="../vendor/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Submit a form - jQuery</h1>
+	<div id="app">
+		<form action="/">
+			<div>
+				<label for="name">Name:</label>
+				<br>
+				<input id="name" type="text" name="name" required/>
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<br>
+				<input id="email" type="email" name="email" required/>
+			</div>
+			<div>
+				<label for="msg">YOU 😍 BOLOGNA JS?</label>
+				<br>
+				<textarea id="msg" name="msg" required></textarea>
+			</div>
+			<button class="submit" type="submit">Submit</button>
+			<div class="response">
+				<h3>Response from server:</h3>
+				<pre class="response"></pre>
+			</div>
+		</form>
+	</div>
+</body>
+<script>
+	$(function () {
+		var $form = $("form");
+		var $button = $("button");
+		var $name = $("input[name=name]");
+		var $email = $("input[name=email]");
+		var $msg = $("textarea[name=msg]");
+
+		$form.find("input").keyup(function () {
+			if ($name.val().length > 0 || $email.val().length > 0 || $msg.val() > 0) {
+				$button.addClass('active');
+			} else {
+				$button.removeClass('active');
+			}
+		});
+
+		$form.submit(function (event) {
+			event.preventDefault();
+
+			//get the form data
+			var formData = {
+				name: $name.val(),
+				email: $email.val(),
+				msg: $msg.val()
+			};
+
+			// process the form
+			$.ajax({
+				type: "POST",
+				url: "//jsonplaceholder.typicode.com/posts",
+				data: formData,
+				dataType: "json",
+				encode: true
+			}).done(function (data) {
+				$(".response pre")
+					.empty()
+					.append(JSON.stringify(data, null, 2));
+			});
+		});
+	});
+</script>
+
+</html>

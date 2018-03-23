@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Vue Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<script src="../vendor/vue.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Toggle element - Vue</h1>
+	<div id="app">
+		<button @click="show = !show" :aria-expanded="show ? 'true' : 'false'">
+			Toggle Panel
+		</button>
+		<p v-if="show">hello</p>
+	</div>
+</body>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			show: true
+		}
+	})
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<script src="../vendor/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Select a menu entry - jQuery</h1>
+	<div id="app">
+		<div class="buttonGroup">
+			<button class="buttonGroup__button">01</button>
+			<button class="buttonGroup__button">02</button>
+			<button class="buttonGroup__button">03</button>
+			<button class="buttonGroup__button">04</button>
+			<button class="buttonGroup__button">05</button>
+		</div>
+	</div>
+</body>
+<script>
+	$(function () {
+		var baseClassName = "buttonGroup";
+		var buttonClassName = baseClassName + "__button";
+		var activeClassName = buttonClassName + "--active";
+		$('.' + baseClassName).on("click", '.' + buttonClassName, function () {
+			$(this)
+				.addClass(activeClassName)
+				.siblings().removeClass(activeClassName);
+		});
+	});
+</script>
+
+</html>

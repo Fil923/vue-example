@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Vue Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<script src="../vendor/vue.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Submit a form - Vue</h1>
+	<div id="app">
+		<form @submit.prevent="submitForm">
+			<div>
+				<label for="name">Name:</label>
+				<br>
+				<input id="name" type="text" v-model="name" required/>
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<br>
+				<input id="email" type="email" v-model="email" required/>
+			</div>
+			<div>
+				<label for="msg">YOU 😍 BOLOGNA JS?</label>
+				<br>
+				<textarea id="msg" v-model="msg" required></textarea>
+			</div>
+			<button :class="[name || email || msg ? activeClass : '']" type="submit">Submit</button>
+			<div class="response">
+				<h3>Response from server:</h3>
+				<pre>{{ response }}</pre>
+			</div>
+		</form>
+	</div>
+</body>
+<script>
+	new Vue({
+		el: '#app',
+		data() {
+			return {
+				name: '',
+				email: '',
+				msg: '',
+				response: '',
+				activeClass: 'active'
+			}
+		},
+		methods: {
+			submitForm() {
+
+				return fetch('//jsonplaceholder.typicode.com/posts', {
+						body: JSON.stringify({
+							name: this.name,
+							email: this.email,
+							msg: this.msg
+						}),
+						headers: new Headers({
+							'Content-Type': 'application/json'
+						}),
+						method: 'POST'
+					})
+					.then(response => response.json())
+					.then(resp => this.response = JSON.stringify(resp, null, 2))
+			}
+		}
+	})
+</script>
+
+</html>
