@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Vue Example</title>
+	<link rel="stylesheet" href="../style.css">
+	<script src="../vendor/vue.min.js"></script>
+</head>
+
+<body>
+	<a href="../">
+		<img src="../images/bolognajs-logo.svg" class="logo" />
+	</a>
+	<h1>Select a menu entry - Vue</h1>
+	<div id="app">
+		<div class="buttonGroup">
+			<button v-for="children in childrens" :class="`buttonGroup__button ${getActiveClass(children)}`" @click="active(children)">
+				{{children }}
+			</button>
+		</div>
+		{{idActive}}
+	</div>
+</body>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			idActive: '',
+			childrens: ['a', 'b', 'c', 'd', 'e']
+		},
+		methods: {
+			active(id) {
+				this.idActive = id
+			},
+			getActiveClass(id) {
+				return (this.idActive === id) ? 'active' : ''; 
+			}
+		}
+	})
+</script>
+
+</html>
