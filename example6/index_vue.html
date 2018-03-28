@@ -15,20 +15,27 @@
 	<h1>Select a menu entry - Vue</h1>
 	<div id="app">
 		<div class="buttonGroup">
-			<button class="buttonGroup__button" @click="active = 1" :class="active === 1 ? 'active' : ''">01</button>
-			<button class="buttonGroup__button" @click="active = 2" :class="active === 2 ? 'active' : ''">02</button>
-			<button class="buttonGroup__button" @click="active = 3" :class="active === 3 ? 'active' : ''">03</button>
-			<button class="buttonGroup__button" @click="active = 4" :class="active === 4 ? 'active' : ''">04</button>
-			<button class="buttonGroup__button" @click="active = 5" :class="active === 5 ? 'active' : ''">05</button>
+			<button id="a" class="buttonGroup__button" :class="getActiveClass('a')" @click="active">01</button>
+			<button id="b" class="buttonGroup__button" :class="getActiveClass('b')" @click="active">02</button>
+			<button id="c" class="buttonGroup__button" :class="getActiveClass('c')" @click="active">03</button>
+			<button id="d" class="buttonGroup__button" :class="getActiveClass('d')" @click="active">04</button>
+			<button id="e" class="buttonGroup__button" :class="getActiveClass('e')" @click="active">05</button>
 		</div>
+		{{idActive}}
 	</div>
 </body>
 <script>
 	new Vue({
 		el: '#app',
-		data() {
-			return {
-				active: ''
+		data: {
+			idActive: ''
+		},
+		methods: {
+			active(evt) {
+				this.idActive = evt.target.id
+			},
+			getActiveClass(id) {
+				return (this.idActive === id) ? 'active' : ''; 
 			}
 		}
 	})
