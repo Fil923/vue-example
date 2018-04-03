@@ -100,3 +100,23 @@ li {
   text-align: center;
   list-style: none;
 }
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 16em;
+}
+.buttonGroup__button {
+  padding: .6em 2em;
+  flex-grow: 1;
+  border: 1px solid grey;
+  background: rgb(88, 202, 73);
+  margin: 1px;
+
+}
+.buttonGroup__button--active, .active {
+  background: cyan;
+  border: 1px solid black;
+}
+
