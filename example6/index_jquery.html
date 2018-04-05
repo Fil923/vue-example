@@ -24,10 +24,10 @@
 </body>
 <script>
 	$(function () {
-		var baseClassName = "buttonGroup";
-		var buttonClassName = baseClassName + "__button";
-		var activeClassName = buttonClassName + "--active";
-		$('.' + baseClassName).on("click", '.' + buttonClassName, function () {
+		var baseClassName = 'buttonGroup';
+		var buttonClassName = baseClassName + '__button';
+		var activeClassName = buttonClassName + '--active';
+		$(`.${baseClassName}`).on('click', `.${buttonClassName}`, function () {
 			$(this)
 				.addClass(activeClassName)
 				.siblings().removeClass(activeClassName);

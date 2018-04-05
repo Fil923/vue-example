@@ -120,3 +120,19 @@ li {
   border: 1px solid black;
 }
 
+.buttonGroup {
+  display: flex;
+  border-right: 1px solid grey;
+}
+
+.button {
+  padding: .5em 1em;
+  flex-grow: 1;
+  border: 1px solid grey;
+  border-right: none;
+  background: yellow;
+}
+
+.active {
+  background: cyan;
+}
