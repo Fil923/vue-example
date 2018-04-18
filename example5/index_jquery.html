@@ -41,16 +41,16 @@
 <script>
 	$(function () {
 		var $form = $("form");
-		var button = $("button");
+		var $button = $("button");
 		var $name = $("input[name=name]");
 		var $email = $("input[name=email]");
 		var $msg = $("textarea[name=msg]");
 
 		$form.find("input").keyup(function () {
 			if ($name.val().length > 0 || $email.val().length > 0 || $msg.val() > 0) {
-				button.addClass('active');
+				$button.addClass('active');
 			} else {
-				button.removeClass('active');
+				$button.removeClass('active');
 			}
 		});
 

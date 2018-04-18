@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../style.css">
 	<script src="../vendor/jquery.min.js"></script>
 </head>
+
 <body>
 	<a href="../">
 		<img src="../images/bolognajs-logo.svg" class="logo" />
@@ -24,14 +25,18 @@
 </body>
 <script>
 	$(function () {
-		var baseClassName = "buttonGroup";
-		var buttonClassName = baseClassName + "__button";
-		var activeClassName = buttonClassName + "--active";
-		$('.' + baseClassName).on("click", '.' + buttonClassName, function () {
-			$(this)
-				.addClass(activeClassName)
-				.siblings().removeClass(activeClassName);
-		});
+		$.ajax({
+				type: "get",
+				url: "//jsonplaceholder.typicode.com/posts",
+				data: formData,
+				dataType: "json",
+				encode: true
+			}).done(function (data) {
+				$(".response pre")
+					.empty()
+					.append(JSON.stringify(data, null, 2));
+			});
 	});
 </script>
+
 </html>

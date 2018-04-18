@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="utf-8">
+	<title>Vue Example</title>
 	<link rel="stylesheet" href="../style.css">
-	<link rel="stylesheet" href="example6.css">
 	<script src="../vendor/vue.min.js"></script>
-	<title>Example6</title>
 </head>
 <body>
 	<a href="../">
 		<img src="../images/bolognajs-logo.svg" class="logo" />
 	</a>
-
-	<h1>Toggle Class on element and not siblings</h1>
-	<div id="app" class="buttonGroup">
-		<button class="button" v-on:click="activate">01</button>
-		<button class="button" v-on:click="activate">02</button>
-		<button class="button" v-on:click="activate">03</button>
-		<button class="button" v-on:click="activate">04</button>
-		<button class="button" v-on:click="activate">05</button>
+	<h1>Select a menu entry - Vue</h1>
+	<div id="app">
+		<div class="buttonGroup">
+			<button id="a" class="buttonGroup__button" :class="getActiveClass('a')" @click="active">01</button>
+			<button id="b" class="buttonGroup__button" :class="getActiveClass('b')" @click="active">02</button>
+			<button id="c" class="buttonGroup__button" :class="getActiveClass('c')" @click="active">03</button>
+			<button id="d" class="buttonGroup__button" :class="getActiveClass('d')" @click="active">04</button>
+			<button id="e" class="buttonGroup__button" :class="getActiveClass('e')" @click="active">05</button>
+		</div>
+		{{idActive}}
 	</div>
 </body>
 <script>
-
-new Vue({
-	el: '#app',
-	data: {
-		children: document.querySelector('.buttonGroup').children
-	},
-	methods: {
-		activate: function(event) {
-			if(children.classList.contains('active')) {
-				children.classList.remove('active');
+	new Vue({
+		el: '#app',
+		data: {
+			idActive: ''
+		},
+		methods: {
+			active(evt) {
+				this.idActive = evt.target.id
+			},
+			getActiveClass(id) {
+				return (this.idActive === id) ? 'active' : ''; 
 			}
-			event.target.classList.toggle('active')
 		}
-	}
-
-})
-
+	})
 </script>
 </html>
