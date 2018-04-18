@@ -19,7 +19,9 @@
 	</a>
 	<h1>Toggle class - Vue</h1>
 	<div id="app">
+		<!-- shorthand for v-on:click-->
 		<button @click="active = !active" :aria-pressed="active ? 'true' : 'false'">Toggle me</button>
+		<!-- We can pass an object to v-bind:class to dynamically toggle classes -->
 		<p :class="{ red: active }">Sometimes I need to be styled differently</p>
 	</div>
 </body>
